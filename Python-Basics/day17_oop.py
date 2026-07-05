@@ -69,3 +69,15 @@ class DroneRobot(Robot):
 
 d = DroneRobot()
 d.move()   # "Flying through the air" — NOT the parent's version
+from abc import ABC, abstractmethod
+
+class Shape(ABC):
+    @abstractmethod
+    def area(self):
+        pass    # every shape MUST define how to calculate its own area
+
+class Circle(Shape):
+    def __init__(self, radius):
+        self.radius = radius
+    def area(self):
+        return 3.14 * self.radius ** 2
